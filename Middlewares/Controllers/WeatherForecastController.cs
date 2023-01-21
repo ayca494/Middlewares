@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Middlewares.Models;
 
 namespace Middlewares.Controllers
 {
@@ -10,9 +11,25 @@ namespace Middlewares.Controllers
         [HttpGet]
         public String Get()
         {
-            throw new Exception("Test hatasý");
+            //throw new Exception("Test hatasý");
 
             return "Ok";
+        }
+
+        [HttpGet("Student")]
+        public Student GetStudent()
+        {
+            return new Student()
+            {
+                ID = 1,
+                FullName = "Ayça"
+            };
+        }
+
+        [HttpPost("Student")]
+        public String CreateStudent([FromBody]Student student)
+        {
+            return "Öðrenci oluþturuldu.";
         }
     }
 }
